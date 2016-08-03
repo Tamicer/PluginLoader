@@ -1,0 +1,80 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    aaptOptions {
+        //additionalParameters "-P", "E:/workspace/Android-Plugin-Framework/PluginTest/res/values/public.xml"
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    defaultConfig {
+        applicationId "com.example.pluginmain"
+        minSdkVersion 8
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        // Move the tests to tests/java, tests/res, etc...
+        instrumentTest.setRoot('tests')
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+}
+
+dependencies {
+    //compile 'com.android.support:appcompat-v7:23.0.0'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':PluginCore')
+    compile project(':PluginShareLib')
+}
+
+
+//http://unclechen.github.io/2015/10/25/Gradle%E5%AE%9E%E8%B7%B5%E4%B9%8B%E6%89%93%E5%8C%85jar+Log%E5%BC%80%E5%85%B3%E8%87%AA%E5%8A%A8%E5%85%B3%E9%97%AD/
+//自定义混淆配置
+//def androidSDKDir = plugins.getPlugin('com.android.library').sdkHandler.getSdkFolder()
+//def androidJarDir = androidSDKDir.toString() + '/platforms/' + "${android.compileSdkVersion}" + '/android.jar'
+
+//task proguardMyLib(type: proguard.gradle.ProGuardTask, dependsOn: ['jarMyLib']) {
+//    injars('build/libs/my-lib.jar')
+//    outjars('build/libs/my-pro-lib.jar')
+//    libraryjars(androidJarDir)
+//    configuration 'proguard-rules.pro'
+//}

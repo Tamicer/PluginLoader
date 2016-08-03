@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lyk.pluginmain"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="22" />
+
+    <uses-permission  android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission  android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <!-- normal -->
+    <!-- 连接网络 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 允许程序读取或写入系统设置 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 写入扩展存储，向扩展卡写入数据，百度地图用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 读取扩展存储 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!-- 请求访问使用照相设备 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <!-- 百度地图相关权限 -->
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <!-- 这个权限用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- 这个权限用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <!-- SD卡读取权限，用户写入离线定位数据-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!--允许应用读取低级别的系统日志文件 -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <!-- 百度推送相关权限 -->
+    <!-- Push service 运行需要的权限 -->
+    <!-- 这个权限用于开机自启动 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <!-- 手机震动权限 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <!-- 申请访问DownloadManager的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <!-- 申请访问DownloadManager的权限, 不发送通知 -->
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <!-- 允许程序禁用键盘锁 -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+
+    <!-- 读取短信、联系人权限 -->
+    <!-- 允许程序读取短信息 -->
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <!-- 允许程序读取联系人 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <!--允许程序拨打电话-->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <!-- ios数据统计 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+
+
+
+    <application
+        android:name="com.plugin.core.PluginApplication"
+        android:icon="@drawable/ic_launcher"
+        android:theme="@style/ShareTheme" >
+
+        <activity
+            android:name="com.example.pluginmain.PluginListActivity" >
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.example.pluginmain.PluginDetailActivity" >
+        </activity>
+
+        <activity
+            android:name="com.example.pluginmain.PluginSampleFragmentActivity" >
+        </activity>
+
+        <activity
+            android:name="com.plugin.core.stub.ui.PluginStubActivity">
+        </activity>
+
+        <receiver
+            android:name="com.example.pluginmain.PluginDebugHelper" >
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.PACKAGE_ADDED" />
+                <action
+                    android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action
+                    android:name="android.intent.action.PACKAGE_RESTARTED" />
+
+                <data
+                    android:scheme="package" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

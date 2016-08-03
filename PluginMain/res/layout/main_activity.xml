@@ -1,0 +1,112 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="所有未安装内置插件列表："
+            android:padding="5dp"
+            android:textSize="16sp" />
+
+        <ListView
+            android:id="@+id/unInstall_id"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#ff33b5e5"
+            android:padding="5dp">
+
+        </ListView>
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/install"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拆卸所有内置插件"
+            android:padding="5dp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/pluginDirTxt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入apk路径" />
+
+        <Button
+            android:id="@+id/pluginLoader"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:text="安装自定义插件（请输入apk路径）" />
+
+       <Button
+            android:id="@+id/allThemes"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击列出皮肤插件所有主题"
+            android:padding="5dp"
+            android:textSize="16sp"
+           android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/red"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="应用皮肤插件红底兰字主题"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/blue"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="应用皮肤插件蓝底黄字主题"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/clear"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击清除主题"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="已安装的插件列表："
+            android:padding="5dp"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:minHeight="100dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical" >
+        </LinearLayout>
+ 
+    </LinearLayout>
+
+</ScrollView>
