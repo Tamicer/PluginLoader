@@ -1,7 +1,4 @@
 #Tamic  Plugin-Framework
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 
 
 此项目是Android插件开发框架完整源码及示例。用来通过动态加载的方式在宿主程序中运行插件APK。参考Android-Plugin-Framework 并且结合DL框架的一些思想
